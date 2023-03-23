@@ -9,6 +9,8 @@ class FoodsController < ApplicationController
           #部分検索
           @foods = Food.where("name LIKE ? ",'%' + params[:search] + '%')
         end
+
+        @foods = @foods.page(params[:page]).per(3)
     end
 
     def new
