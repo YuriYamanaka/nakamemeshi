@@ -14,4 +14,6 @@ class User < ApplicationRecord
     self.likes.exists?(food_id: food.id)
   end
 
+  has_many :comments, dependent: :destroy
+  
 end

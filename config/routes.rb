@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :foods do
     resources :likes, only: [:create, :destroy]
+    resources :comments, only: [:create]
   end
   root 'foods#index'
 end
