@@ -2,6 +2,14 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]  
   def index
         @foods = Food.all
+        if params[:search] == nil
+          @foods= Food.all
+        elsif params[:search] == ''
+          @foods=Food.all
+        else
+          #部分検索
+          @foods = Food.where("body LIKE ? ",'%' + params[:search] + '%')
+        end
     end
 
     def new
