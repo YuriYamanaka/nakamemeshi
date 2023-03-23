@@ -27,11 +27,11 @@
 
       <% if user_signed_in? %>
       <% if current_user.already_liked?(t) %>
-          <%= link_to food_like_path(id: t.id, food_id: t.id), method: :delete do %>
+          <%= button_to food_like_path(id: t.id, food_id: t.id), method: :delete do %>
               <p>いいねを取り消す</p><%= t.likes.count %>
           <% end %>
       <% else %>
-          <%= link_to food_likes_path(id: t.id, food_id: t.id), method: :post do %>
+          <%= button_to food_likes_path(id: t.id, food_id: t.id), method: :post do %>
               <p>いいね</p><%= t.likes.count %>
           <% end %>
       <% end %>
