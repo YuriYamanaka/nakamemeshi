@@ -1,0 +1,13 @@
+<h1>Nakamemeshi</h1>
+<h3>グルメ詳細</h3>
+<div class="food">
+  <p><%= @food.name %></p>
+  <p><%= @food.genre %></p>
+  <p><%= @food.address %></p>
+  <p><%= @food.cost %></p>
+  <p><%= @food.about %></p>
+  <p><%= @food.created_at %></p>
+</div>
+
+<%= link_to "編集する", edit_food_path(@food.id) %>
+<%= link_to "グルメ一覧に戻る", foods_path %>

@@ -1,0 +1,19 @@
+<h1>中目黒ご飯</h1>
+<h3>一覧ページ</h3>
+<%= link_to "新規投稿へ", new_food_path %>
+<div class="foods-container">
+  <% @foods.each do |t| %>
+    <div class="food">
+      <%= t.user.email %>
+      <%= t.name %>
+      <%= t.genre %>
+      <%= t.address %>
+      <%= t.cost %>
+      <%= t.about %>
+      <%= t.date %>
+      <%= link_to "詳細へ", food_path(t.id) %>  
+      <%= link_to "編集する", edit_food_path(t.id) %>
+      <%= button_to "削除する", food_path(t.id), method: :delete %>
+    </div>
+  <% end %>
+</div>

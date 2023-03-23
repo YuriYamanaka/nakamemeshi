@@ -1,0 +1,45 @@
+<h1>中目黒グルメサイト</h1>
+<h3>新規投稿ページ</h3>
+<%= form_for @foods do |f| %>
+
+  <div class="field">
+    <%= f.label :店の名前 %>
+    <%= f.text_field :name, :size => 30 %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :ジャンル  %>
+    <%= f.select :genre, 
+    [["イタリアン", "イタリアン"], 
+    ["中華", "中華"], 
+    ["和食", "和食"]], include_blank: "選択して下さい" %>
+  </div>
+
+  <div class="field">
+  <%= f.label :所要時間  %>
+  <%= f.select :address, 
+  [["5分以内", "5分以内"], 
+  ["5~10分", "5~10分"], 
+  ["15分以上", "15分以上"]], include_blank: "選択して下さい" %>
+</div>
+
+<div class="field">
+    <%= f.label :相場  %>
+    <%= f.number_field :cost, :size => 10 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :感想  %>
+    <%= f.text_area :about, :size => "30x2" %>
+  </div>
+
+  <div class="field">
+  <%= f.label :写真 %>
+  <%= f.text_field :image, :size => 30 %>
+</div>
+
+  <%= f.submit "投稿する" %>
+<% end %>
+
+<%= link_to "一覧に戻る", foods_path %>
