@@ -9,5 +9,25 @@
   <p><%= @food.created_at %></p>
 </div>
 
-<%= link_to "編集する", edit_food_path(@food.id) %>
+<% if user_signed_in? %>
+      <% if current_user.already_liked?(@food) %>
+        <%= link_to food_like_path(@food), method: :delete do %>
+          <p>いいねを取り消す</p><%= @food.likes.count %>
+        <% end %>
+      <% else %>
+        <%= link_to food_likes_path(@food), method: :post do %>
+          <p>いいね</p><%= @food.likes.count %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>いいねの数 = </p><%= @food.likes.count %>
+    <% end %>
+  <%= link_to "編集する", edit_food_path(@food.id) %>
+</div>
+
+<h2>いいねしたユーザー</h2>
+<% @food.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
 <%= link_to "グルメ一覧に戻る", foods_path %>
