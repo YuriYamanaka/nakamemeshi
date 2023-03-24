@@ -20,6 +20,7 @@
 <div class="foods-container">
   <% @foods.each do |t| %>
     <div class="food">
+    <%= image_tag t.image_url, size: "250x200" if t.image? %>
       <%= t.user.email %>
       <%= t.name %>
       <%= t.genre %>
