@@ -2,22 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.post_form{
+.food_form{
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
   }
-  .post_form input[type='radio']{
+  .food_form input[type='radio']{
     display: none;
   }
-  .post_form label{
+  .food_form label{
     position: relative;
     padding: 10px 10px 0;
     color: gray;
     cursor: pointer;
     font-size: 30px; /*星の大きさを変更するときはここ*/
   }
-  .post_form label .text{
+  .food_form label .text{
     position: absolute;
     left: 0;
     top: 0;
@@ -26,9 +26,9 @@
     font-size: 9px; /*星の上の説明書きの大きさを変更するときはここ*/
     color: gray;
   }
-  .post_form label:hover,
-  .post_form label:hover ~ label,
-  .post_form input[type='radio']:checked ~ label{
+  .food_form label:hover,
+  .food_form label:hover ~ label,
+  .food_form input[type='radio']:checked ~ label{
     color: #ffcc00;
   }
 

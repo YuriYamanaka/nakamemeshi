@@ -1,8 +1,8 @@
 module.exports = {
   plugins: [
-    require('postcss-import'),
-    require('postcss-flexbugs-fixes'),
-    require('postcss-preset-env')({
+    require('foodcss-import'),
+    require('foodcss-flexbugs-fixes'),
+    require('foodcss-preset-env')({
       autoprefixer: {
         flexbox: 'no-2009'
       },

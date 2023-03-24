@@ -27,7 +27,7 @@
           <p>いいねを取り消す</p><%= @food.likes.count %>
         <% end %>
       <% else %>
-        <%= button_to food_likes_path(@food), method: :post do %>
+        <%= button_to food_likes_path(@food), method: :food do %>
           <p>いいね</p><%= @food.likes.count %>
         <% end %>
       <% end %>

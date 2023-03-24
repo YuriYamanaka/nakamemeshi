@@ -1,6 +1,6 @@
 <h1>中目黒グルメサイト</h1>
 <h3>新規投稿ページ</h3>
-<%= form_for @foods do |f| %>
+<%= form_with(model: @foods, local: true) do |f| %>
 
   <div class="field">
     <%= f.label :店の名前 %>
@@ -22,9 +22,9 @@
   [["5分以内", "5分以内"], 
   ["5~10分", "5~10分"], 
   ["15分以上", "15分以上"]], include_blank: "選択して下さい" %>
-</div>
+  </div>
 
-<div class="field">
+  <div class="field">
     <%= f.label :相場  %>
     <%= f.number_field :cost, :size => 10 %>
   </div>
@@ -39,23 +39,42 @@
   <%= f.file_field :image %>
 </div>
 
-<%= form_with(model: @food, local: true) do |f| %>
+<h5>総合評価</h5>
+   <div class="food_form">
+    <%= f.radio_button :overall, 5 ,id: 'star1'%>
+    <label for="star1"><span class="text">最高</span>★</label>
+
+    <%= f.radio_button :overall, 4 ,id: 'star2'%>
+    <label for="star2"><span class="text">良い</span>★</label>
+
+    <%= f.radio_button :overall, 3 ,id: 'star3'%>
+    <label for="star3"><span class="text">普通</span>★</label>
+
+    <%= f.radio_button :overall, 2 ,id: 'star4'%>
+    <label for="star4"><span class="text">悪い</span>★</label>
+
+    <%= f.radio_button :overall, 1 ,id: 'star5'%>
+    <label for="star5"><span class="text">最悪</span>★</label>
+ </div>
+
+ 
   <div class="actions">
-    <%= f.label :body,"内容" %>
-    <%= f.text_field :body %>
     <%= f.label :lat,"緯度" %>
     <%= f.text_field :lat,:value =>"緯度", id: :lat %>
     <%= f.label :lng,"経度" %>
     <%= f.text_field :lng,:value =>"経度", id: :lng %>
-    <%= f.submit %>
   </div>
-<% end %>
+  
+  <%= f.submit "投稿する" %>
+  <% end %>
+ 
 
 <h2>Map</h2>
 
 <input id="address" type="textbox" value="GeekSalon">
 <input type="button" value="検索" onclick="codeAddress()">
 <p>マーカーをドラック＆ドロップで位置の調整ができます。<p>
+
 <div id='map'></div>
 
 <style>
@@ -119,27 +138,8 @@ function codeAddress(){
 }
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOURAPIKEY&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA4mNa8QKOk9FbkMkcshWkwi6xcOL047k&callback=initMap" async defer></script>
 
- <h5>総合評価</h5>
-   <div class="post_form">
-    <%= f.radio_button :overall, 5 ,id: 'star1'%>
-    <label for="star1"><span class="text">最高</span>★</label>
 
-    <%= f.radio_button :overall, 4 ,id: 'star2'%>
-    <label for="star2"><span class="text">良い</span>★</label>
-
-    <%= f.radio_button :overall, 3 ,id: 'star3'%>
-    <label for="star3"><span class="text">普通</span>★</label>
-
-    <%= f.radio_button :overall, 2 ,id: 'star4'%>
-    <label for="star4"><span class="text">悪い</span>★</label>
-
-    <%= f.radio_button :overall, 1 ,id: 'star5'%>
-    <label for="star5"><span class="text">最悪</span>★</label>
- </div>
-
-  <%= f.submit "投稿する" %>
-<% end %>
 
 <%= link_to "一覧に戻る", foods_path %>
