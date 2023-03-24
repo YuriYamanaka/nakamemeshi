@@ -9,6 +9,15 @@
   <p><%= @food.created_at %></p>
 </div>
 
+<div>
+<h2>総合評価：
+<span class="star-rating">
+   <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
+   <span class="star-rating-back">★★★★★</span>
+</span> 
+</h2>
+</div>
+
 <% if user_signed_in? %>
       <% if current_user.already_liked?(@food) %>
         <%= link_to food_like_path(@food), method: :delete do %>
