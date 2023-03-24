@@ -21,6 +21,7 @@
   <% @foods.each do |t| %>
     <div class="food">
     <%= image_tag t.image_url, size: "250x200" if t.image? %>
+    <%= link_to t.user.name, user_path(t.user.id) %>
       <%= t.user.email %>
       <%= t.name %>
       <%= t.genre %>
