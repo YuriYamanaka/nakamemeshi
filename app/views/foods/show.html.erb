@@ -6,17 +6,20 @@
   <p><%= @food.address %></p>
   <p><%= @food.cost %></p>
   <p><%= @food.about %></p>
-  <p><%= @food.created_at %></p>
-</div>
 
-<div>
+  <div>
 <h2>総合評価：
 <span class="star-rating">
-   <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
+   <span class="star-rating-front" style="width: <%= getPercent(@food.overall) %>%;">★★★★★</span>
    <span class="star-rating-back">★★★★★</span>
 </span> 
 </h2>
 </div>
+
+  <p><%= @food.created_at %></p>
+</div>
+
+
 
 <% if user_signed_in? %>
       <% if current_user.already_liked?(@food) %>
