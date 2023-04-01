@@ -22,6 +22,10 @@ class User < ApplicationRecord
     self.likes.exists?(food_id: food.id)
   end
 
+  has_many :messages, dependent: :destroy
+
+  has_many :entries, dependent: :destroy
+
   has_many :comments, dependent: :destroy
 
   has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
